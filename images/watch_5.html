@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="350">
+  <rect x="" y="0" width="350" height="350" rx="40" style="stroke: #000000" />
+  <rect x="5" y="5" width="340" height="340" rx="35" style="stroke: url(#text_color)" />
+  <linearGradient id="text_color" x1="10" x2="10" y1="10" y2="600%" gradientUnits="userSpaceOnUse">
+    <stop stop-color="orange" offset="0%" />
+    <stop stop-color="green" offset="100%" />
+  </linearGradient>
+
+  <text
+    fill="url(#text_color)"
+    font-size="12"
+    font-family="open-sans"
+    style="white-space: pre"
+    xml:space="preserve"
+    letter-spacing="3"
+    fill-opacity="0.56"
+  >
+    <tspan x="30" y="50">01 02 03 04 05 06 07 08 09 10</tspan>
+    <tspan x="30" y="75">11 12 13 14 15 16 17 18 19 20</tspan>
+    <tspan x="30" y="100">21 22 23 00 00 00 00 00 00 00</tspan>
+    <tspan x="30" y="125">01 02 03 04 05 06 07 08 09 10</tspan>
+    <tspan x="30" y="150">11 12 13 14 15 16 17 18 19 20</tspan>
+    <tspan x="30" y="175">21 22 23 24 25 26 27 28 29 30</tspan>
+    <tspan x="30" y="200">31 32 33 34 35 36 37 38 39 40</tspan>
+    <tspan x="30" y="225">41 42 43 44 45 46 47 48 49 50</tspan>
+    <tspan x="30" y="250">51 52 53 54 55 56 57 58 59 60</tspan>
+  </text>
+  <text fill="white" font-size="12" font-family="open-sans" style="white-space: pre" xml:space="preserve" letter-spacing="3">
+    <tspan id="hour" x="210" y="75"></tspan>
+    <tspan id="minute" x="270" y="225"></tspan>
+  </text>
+  <line x1="30" y1="295" x2="315" y2="295" style="stroke: green; opacity: 0.92" />
+  <polygon fill="white" points="60,295 70,310 80,295 70,280">
+    <animate
+      id="anim1"
+      attributeName="points"
+      from="30,295 40,310 50,295 40,280"
+      to="300,295 310,310 320,295 310,280"
+      dur="60s"
+      begin="0s; anim2.end"
+      fill="freeze"
+    />
+    <animate
+      id="anim2"
+      attributeName="points"
+      from="300,295 310,310 320,295 310,280"
+      to="30,295 40,310 50,295 40,280"
+      dur="60s"
+      begin="anim1.end"
+      fill="freeze"
+    />
+  </polygon>
+  <script type="text/javascript">
+    <![CDATA[ let i = 1000; setTimeout(function () { var t = document.getElementById("hour"), e = document.getElementById("minute"), n = Date.now() /
+    1e3, u = (n / 60 / 60) % 24, r = (n / 60) % 60, o = 30 * (Math.trunc(u % 10) - 1) + 30, c = 50 + 25 * Math.trunc(u / 11), l = 30 + 30 *
+    (Math.trunc(r % 10) - 1), a = 125 + 25 * Math.trunc(r / 11); u = ((u < 10) ? '0'.concat(u.toString()) : u); r = ((r < 10) ?
+    '0'.concat(r.toString()) : r); console.log(r) i = (1e3 * (60 - (n % 60))), t.setAttribute("x", Math.trunc(o)), t.setAttribute("y", Math.trunc(c)),
+    e.setAttribute("x", Math.trunc(l)), e.setAttribute("y", Math.trunc(a)); (document.getElementById("hour").innerHTML = Math.trunc(u)),
+    (document.getElementById("minute").innerHTML = Math.trunc(r)); }, i) ]]>
+  </script>
+</svg>
